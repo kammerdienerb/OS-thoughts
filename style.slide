@@ -21,22 +21,24 @@
 : bgx 73877B
 :end
 
-:bgx 3a506b
+:begin BG_BLUE
+: bgx 0B132B
+:end
 
 :begin FG_DARK_BLUE
 :    fgx 1c2541
 :end
 
 :begin FG_BLUE
-:    fgx 3a506b
-:end
-
-:begin FG_LIGHT_BLUE
-:    fgx 5bc0be
+:    fgx 77B6EA
 :end
 
 :begin FG_GREEN
-:    fgx 839788
+:    fgx B7B868
+:end
+
+:begin FG_MAGENTA
+:    fgx E01A4F
 :end
 
 :begin FG_GREY
@@ -44,7 +46,7 @@
 :end
 
 :begin FG_WHITE
-:    fgx F5E4D7
+:    fgx E8EEF2
 :end
 
 :######################################################## for basic.slide
@@ -57,7 +59,7 @@
 :end
 
 :begin BG
-:    use BG_GREEN
+:    use BG_BLUE
 :end
 
 :begin FG_BODY
@@ -73,21 +75,21 @@
 :end
 
 :begin SIZE_TITLE
-:    size 40
+:    size 64
 :end
 
 :begin SIZE_HEADER
-:    size 32
+:    size 48
 :end
 
 :begin SIZE_BODY
-:    size 16
+:    size 24
 :end
 
 :begin SIZE_2
-:    size 13
+:    size 20
 :end
 
 :begin SIZE_3
-:    size 10
+:    size 16
 :end

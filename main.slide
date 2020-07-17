@@ -1,4 +1,4 @@
-:resolution 1920 1080
+:resolution 2560 1440
 
 :include "style.slide"
 :include "basic.slide"
@@ -6,5 +6,155 @@
 :use TITLE
 :vspace 0.25
 An OS for the Next 100 Years
+:use NEXT_SLIDE #####################################################
 
-:use NEXT_SLIDE
+:use HEADER
+Introduction
+
+:use BODY
+Turn your computer off and put it in the closet.
+ 100 years from now someone finds it and powers it up.
+
+:use SIZE_2
+:use FG_MAGENTA
+Does it boot?
+:use FG_BODY
+ Probably.
+
+:use FG_MAGENTA
+Do your applications still run?
+:use FG_BODY
+ Maybe..
+
+:use FG_MAGENTA
+Can you install new software on it?
+:use FG_BODY
+ Not a chance.
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Introduction
+
+:use BODY
+What are the limitations of current operating systems and software in general that make this impossible?
+
+What would an operating system have to look like to make this (admittedly pathological) scenario possible?
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Limitations
+
+:translate 0 -0.05
+:use BODY
+Software is stable when its dependencies are stable.
+
+:use BULLET1
+What dependencies?
+
+:use BULLET2
+Dynamically linked (shared) libraries
+
+:use BULLET2
+Operating system interface, (like system calls)
+
+:use BULLET2
+Library/OS ABI
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Limitations (Libraries)
+
+:use BODY
+:use SIZE_2
+If we can statically link libraries, why do we dynamically link them and introduce possible instability?
+
+:point
+
+:vspace 0.1
+
+:use BODY
+:use SIZE_3
+:use FG_MAGENTA
+:lmargin 0.05
+:rmargin 0.55
+A static library that is used by multiple processes is duplicated in memory.
+
+:use BODY
+:use SIZE_3
+:use FG_GREEN
+:translate 0.5 -0.206
+:lmargin 0.05
+:rmargin 0.55
+One copy of a dynamically linked library is shared by all processes that use it.
+
+:vspace 0.07
+
+:use BODY
+:use SIZE_3
+:use FG_MAGENTA
+:lmargin 0.05
+:rmargin 0.55
+A static library that is used by multiple programs is duplicated in each application's binary.
+
+:use BODY
+:use SIZE_3
+:use FG_GREEN
+:translate 0.5 -0.206
+:lmargin 0.05
+:rmargin 0.55
+One copy of a dynamically linked library exists on the system.
+ This leads to smaller binaries.
+
+:vspace 0.07
+
+:use BODY
+:use SIZE_3
+:use FG_MAGENTA
+:lmargin 0.05
+:rmargin 0.55
+If a static library changes, applications that use it must be recompiled to use the new version.
+
+:use BODY
+:use SIZE_3
+:use FG_GREEN
+:translate 0.5 -0.269
+:lmargin 0.05
+:rmargin 0.55
+Updates to shared libraries can be used without recompiling the application that uses it.
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Limitations (Libraries)
+
+:use BODY
+Sounds great! What's the problem exactly?
+
+:use BULLET1
+:use SIZE_2
+Updates to libraries are often not 
+:italic
+backwards compatible
+:no-italic
+.
+
+:use BULLET1
+:use SIZE_2
+For an application that depends on a shared library to be "stable", the 
+:use FG_MAGENTA
+:bold
+exact
+:no-bold
+:use FG_BODY
+ version of the library 
+:use FG_MAGENTA
+:bold
+must
+:no-bold
+:use FG_BODY
+ exist on the system 
+:use FG_MAGENTA
+:bold
+at all times
+:no-bold
+:use FG_BODY
+.
