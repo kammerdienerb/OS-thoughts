@@ -1,0 +1,80 @@
+:begin NEXT_SLIDE
+:    vfill
+:    point
+:end
+
+:begin TITLE
+:    no-underline
+:    no-bold
+:    no-italic
+:    margin 0.05
+:    cjust
+:    use FG_TITLE
+:    use SIZE_TITLE
+:end
+
+:begin HEADER
+:    use FONT_NORMAL
+:    no-underline
+:    no-bold
+:    no-italic
+:    margin 0.05
+:    ljust
+:    vspace 0.05
+:    use FG_HEADER
+:    use SIZE_HEADER
+:end
+
+:begin BODY
+:    use FONT_NORMAL
+:    no-underline
+:    no-bold
+:    no-italic
+:    margin 0.1
+:    ljust
+:    use FG_BODY
+:    use SIZE_BODY
+:end
+
+:begin BULLET1_TEXT
+:    use BODY
+:    ljust
+:    use SIZE_BODY
+:end
+
+:begin BULLET1
+:    use BULLET1_TEXT
+:    bullet 1
+:end
+
+:begin BULLET2_TEXT
+:    use BODY
+:    ljust
+:    use SIZE_2
+:end
+
+:begin BULLET2
+:    use BULLET2_TEXT
+:    bullet 2
+:end
+
+:begin BULLET3_TEXT
+:    use BODY
+:    ljust
+:    use SIZE_3
+:end
+
+:begin BULLET3
+:    use BULLET3_TEXT
+:    bullet 3
+:end
+
+:begin MATH
+:    use FONT_MATH
+:    italic
+:end
+
+
+:############### default
+:use BG
+:use BODY

@@ -1,0 +1,93 @@
+:# style.slide
+
+:################################################################## FONTS
+:begin F_PLAYFAIR
+:    font             fonts/PlayfairDisplay-Regular.otf
+:    font-bold        fonts/PlayfairDisplay-Bold.otf
+:    font-italic      fonts/PlayfairDisplay-Italic.otf
+:    font-bold-italic fonts/PlayfairDisplay-BoldItalic.otf
+:end
+
+:begin F_CARDO
+:    font             fonts/Cardo-Regular.ttf
+:    font-bold        fonts/Cardo-Bold.ttf
+:    font-italic      fonts/Cardo-Italic.ttf
+:    font-bold-italic fonts/Cardo-Italic.ttf
+:end
+
+:################################################################# COLORS
+
+:begin BG_GREEN
+: bgx 73877B
+:end
+
+:bgx 3a506b
+
+:begin FG_DARK_BLUE
+:    fgx 1c2541
+:end
+
+:begin FG_BLUE
+:    fgx 3a506b
+:end
+
+:begin FG_LIGHT_BLUE
+:    fgx 5bc0be
+:end
+
+:begin FG_GREEN
+:    fgx 839788
+:end
+
+:begin FG_GREY
+:    fgx BDBBB6
+:end
+
+:begin FG_WHITE
+:    fgx F5E4D7
+:end
+
+:######################################################## for basic.slide
+:begin FONT_NORMAL
+:    use F_PLAYFAIR
+:end
+
+:begin FONT_MATH
+:    use F_CARDO
+:end
+
+:begin BG
+:    use BG_GREEN
+:end
+
+:begin FG_BODY
+:    use FG_WHITE
+:end
+
+:begin FG_HEADER
+:    use FG_BLUE
+:end
+
+:begin FG_TITLE
+:    use FG_BLUE
+:end
+
+:begin SIZE_TITLE
+:    size 40
+:end
+
+:begin SIZE_HEADER
+:    size 32
+:end
+
+:begin SIZE_BODY
+:    size 16
+:end
+
+:begin SIZE_2
+:    size 13
+:end
+
+:begin SIZE_3
+:    size 10
+:end
