@@ -45,6 +45,10 @@
 :    fgx BDBBB6
 :end
 
+:begin FG_PURPLE
+:    fgx 8B8196
+:end
+
 :begin FG_WHITE
 :    fgx E8EEF2
 :end
@@ -92,4 +96,12 @@
 
 :begin SIZE_3
 :    size 16
+:end
+
+:begin SIZE_4
+:    size 12
+:end
+
+:begin SIZE_5
+:    size 8
 :end

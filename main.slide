@@ -62,7 +62,7 @@ Library/OS ABI
 :use NEXT_SLIDE #####################################################
 
 :use HEADER
-Limitations (Libraries)
+Limitations: Libraries
 
 :use BODY
 :use SIZE_2
@@ -82,7 +82,7 @@ A static library that is used by multiple processes is duplicated in memory.
 :use BODY
 :use SIZE_3
 :use FG_GREEN
-:translate 0.5 -0.206
+:translate 0.5 -0.208
 :lmargin 0.05
 :rmargin 0.55
 One copy of a dynamically linked library is shared by all processes that use it.
@@ -99,7 +99,7 @@ A static library that is used by multiple programs is duplicated in each applica
 :use BODY
 :use SIZE_3
 :use FG_GREEN
-:translate 0.5 -0.206
+:translate 0.5 -0.209
 :lmargin 0.05
 :rmargin 0.55
 One copy of a dynamically linked library exists on the system.
@@ -117,14 +117,14 @@ If a static library changes, applications that use it must be recompiled to use 
 :use BODY
 :use SIZE_3
 :use FG_GREEN
-:translate 0.5 -0.269
+:translate 0.5 -0.27
 :lmargin 0.05
 :rmargin 0.55
-Updates to shared libraries can be used without recompiling the application that uses it.
+Updates to a shared library can be used without recompiling the application that uses it.
 :use NEXT_SLIDE #####################################################
 
 :use HEADER
-Limitations (Libraries)
+Limitations: Libraries
 
 :use BODY
 Sounds great! What's the problem exactly?
@@ -151,10 +151,100 @@ exact
 must
 :no-bold
 :use FG_BODY
- exist on the system 
+ exist on the system in the 
+:italic
+:bold
+expected location
+:no-bold
+:no-italic
 :use FG_MAGENTA
 :bold
-at all times
+ at all times
 :no-bold
 :use FG_BODY
 .
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Limitations: OS Interface
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Limitations: ABI
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Examples
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Windows
+
+:use BODY
+:rmargin 0.2 # force a little early wrapping
+Strong history of backwards compatibility [1]
+
+:use BODY
+:translate 0 -0.125
+:rjust
+:use FG_GREEN
+ : )
+
+:use BODY
+DLL-hell
+
+:translate 0 -0.125
+:rjust
+:use FG_MAGENTA
+ : (
+
+:use BODY
+Microsoft
+
+:translate 0 -0.125
+:rjust
+:use FG_MAGENTA
+ : (
+
+:vspace 0.1
+:use BODY
+:use FG_GREY
+:rjust
+:use SIZE_5
+[1] http://ptgmedia.pearsoncmg.com/images/9780321440303/samplechapter/Chen_bonus_ch01.pdf
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+Linux (Traditional)
+:use NEXT_SLIDE #####################################################
+
+:use HEADER
+NixOS
+
+:translate 0 -0.05
+:use BODY
+:use SIZE_2
+Great ideas:
+
+:use BULLET2
+:use SIZE_3
+Isolating build environments
+
+:use BULLET2
+:use SIZE_3
+Identifying packages by hash to ensure that upgrading / installing one package doesn't break another package
+
+:use BODY
+:use SIZE_2
+Not immune to dynamic linking issues:
+
+:use MATH
+:use FG_PURPLE
+:use SIZE_3
+       https://www.johnbcoughlin.com/posts/nix-dynamic-linking
+
+:use BODY
+:use SIZE_3
+It can only go so far when building upon the traditional systems with dynamically linked dependencies.
+
+:use NEXT_SLIDE #####################################################
