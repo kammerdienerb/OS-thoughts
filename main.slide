@@ -131,30 +131,30 @@ Sounds great! What's the problem exactly?
 
 :use BULLET1
 :use SIZE_2
-Updates to libraries are often not 
+Updates to libraries are often not
 :italic
-backwards compatible
+ backwards compatible
 :no-italic
 .
 
 :use BULLET1
 :use SIZE_2
-For an application that depends on a shared library to be "stable", the 
+For an application that depends on a shared library to be "stable", the
 :use FG_MAGENTA
 :bold
-exact
+ exact
 :no-bold
 :use FG_BODY
- version of the library 
+ version of the library
 :use FG_MAGENTA
 :bold
-must
+ must
 :no-bold
 :use FG_BODY
- exist on the system in the 
+ exist on the system in the
 :italic
 :bold
-expected location
+ expected location
 :no-bold
 :no-italic
 :use FG_MAGENTA
