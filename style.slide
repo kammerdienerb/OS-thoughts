@@ -2,10 +2,10 @@
 
 :################################################################## FONTS
 :begin F_PLAYFAIR
-:    font             fonts/PlayfairDisplay-Regular.otf
-:    font-bold        fonts/PlayfairDisplay-Bold.otf
-:    font-italic      fonts/PlayfairDisplay-Italic.otf
-:    font-bold-italic fonts/PlayfairDisplay-BoldItalic.otf
+:    font             fonts/PlayfairDisplay-Regular.ttf
+:    font-bold        fonts/PlayfairDisplay-Bold.ttf
+:    font-italic      fonts/PlayfairDisplay-Italic.ttf
+:    font-bold-italic fonts/PlayfairDisplay-BoldItalic.ttf
 :end
 
 :begin F_CARDO
@@ -15,7 +15,15 @@
 :    font-bold-italic fonts/Cardo-Italic.ttf
 :end
 
+:begin F_LUXIMR
+:    font             fonts/luximr.ttf
+:end
+
 :################################################################# COLORS
+
+:begin BG_WHITE
+: bgx FFFFFF
+:end
 
 :begin BG_GREEN
 : bgx 73877B
@@ -23,6 +31,10 @@
 
 :begin BG_BLUE
 : bgx 0B132B
+:end
+
+:begin FG_BLACK
+:    fgx 000000
 :end
 
 :begin FG_DARK_BLUE
@@ -34,19 +46,28 @@
 :end
 
 :begin FG_GREEN
-:    fgx B7B868
+:    fgx 7FB800
+:#    fgx B7B868
 :end
 
 :begin FG_MAGENTA
 :    fgx E01A4F
 :end
 
+:begin FG_ORANGE
+:    fgx EF9500
+:end
+
 :begin FG_GREY
-:    fgx BDBBB6
+:    fgx 7D7B76
 :end
 
 :begin FG_PURPLE
-:    fgx 8B8196
+:    fgx 8B5196
+:end
+
+:begin FG_RED
+:    fgx BB5166
 :end
 
 :begin FG_WHITE
@@ -62,28 +83,52 @@
 :    use F_CARDO
 :end
 
+:begin FONT_MONO
+:    use F_LUXIMR
+:end
+
 :begin BG
-:    use BG_BLUE
+:    use BG_WHITE
 :end
 
 :begin FG_BODY
-:    use FG_WHITE
+:    use FG_BLACK
+:end
+
+:begin FG_SLIDE_NUMBER
+:    use FG_GREY
+:end
+
+:begin FG_DIAGRAM
+:    use FG_DARK_BLUE
 :end
 
 :begin FG_HEADER
 :    use FG_BLUE
 :end
 
+:begin FG_SUBHEADER
+:    use FG_MAGENTA
+:end
+
 :begin FG_TITLE
-:    use FG_BLUE
+:    use FG_BLACK
 :end
 
 :begin SIZE_TITLE
-:    size 64
+:    size 48
 :end
 
 :begin SIZE_HEADER
-:    size 48
+:    size 40
+:end
+
+:begin SIZE_SUBHEADER
+:    size 32
+:end
+
+:begin SIZE_SLIDE_NUMBER
+:    size 16
 :end
 
 :begin SIZE_BODY
@@ -103,5 +148,9 @@
 :end
 
 :begin SIZE_5
+:    size 10
+:end
+
+:begin SIZE_6
 :    size 8
 :end

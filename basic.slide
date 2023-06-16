@@ -1,6 +1,24 @@
+:begin SLIDE_NUMBER
+:    gotoy 0.925
+:    use FONT_MATH
+:    no-underline
+:    no-bold
+:    no-italic
+:    margin 0.015
+:    rjust
+:    use FG_SLIDE_NUMBER
+:    use SIZE_SLIDE_NUMBER
+:    counter
+:end
+
 :begin NEXT_SLIDE
+:    use SLIDE_NUMBER
 :    vfill
 :    point
+:    save 'top'
+:    gotoy 1.0
+:    save 'bottom'
+:    restore 'top'
 :end
 
 :begin TITLE
@@ -25,6 +43,18 @@
 :    use SIZE_HEADER
 :end
 
+:begin SUBHEADER
+:    use FONT_NORMAL
+:    no-underline
+:    no-bold
+:    no-italic
+:    margin 0.05
+:    ljust
+:    vspace 0.05
+:    use FG_SUBHEADER
+:    use SIZE_SUBHEADER
+:end
+
 :begin BODY
 :    use FONT_NORMAL
 :    no-underline
@@ -37,7 +67,6 @@
 :end
 
 :begin BULLET1_TEXT
-:    use BODY
 :    ljust
 :    use SIZE_BODY
 :end
@@ -47,8 +76,13 @@
 :    bullet 1
 :end
 
+:begin BULLET1_SMALL
+:    use BULLET1_TEXT
+:    use SIZE_2
+:    bullet 1
+:end
+
 :begin BULLET2_TEXT
-:    use BODY
 :    ljust
 :    use SIZE_2
 :end
@@ -59,7 +93,6 @@
 :end
 
 :begin BULLET3_TEXT
-:    use BODY
 :    ljust
 :    use SIZE_3
 :end
@@ -70,11 +103,39 @@
 :end
 
 :begin MATH
+:    use BODY
 :    use FONT_MATH
 :    italic
 :end
 
+:begin MONO
+:    use FONT_MONO
+:end
+
+:begin DIAGRAM
+:    use BODY
+:    use MONO
+:    no-underline
+:    no-bold
+:    no-italic
+:    use FG_DIAGRAM
+:    use SIZE_5
+:end
+
+:begin CODE
+:    use BODY
+:    use MONO
+:    no-underline
+:    no-bold
+:    no-italic
+:    use FG_DIAGRAM
+:    use SIZE_4
+:end
+
 
 :############### default
+:# resolution 2560 1600
+:resolution 2560 1440
+:speed inf
 :use BG
 :use BODY

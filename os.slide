@@ -1,0 +1,407 @@
+:include "style.slide"
+:include "basic.slide"
+
+:use TITLE
+:vspace 0.3
+An OS for the Next 100 Years
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Introduction
+
+:use BODY
+Turn your computer off and put it in the closet.
+ 100 years from now someone finds it and powers it up.
+
+:use SIZE_2
+:use FG_MAGENTA
+Does it boot?
+:use FG_BODY
+ Probably.
+
+:use FG_MAGENTA
+Do your applications still run?
+:use FG_BODY
+ Maybe..
+
+:use FG_MAGENTA
+Can you install new software on it?
+:use FG_BODY
+ Not a chance.
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Introduction
+
+:use BODY
+What are the limitations of current operating systems and software in general that make this impossible?
+
+What would an operating system have to look like to make this (admittedly pathological) scenario possible?
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Limitations
+
+:translate 0 -0.05
+:use BODY
+Software is stable when its dependencies are stable.
+
+:use BULLET1
+What dependencies?
+
+:use BULLET2
+Dynamically linked (shared) libraries
+
+:use BULLET2
+Operating system interface, (like system calls)
+
+:use BULLET2
+Library/OS ABI
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Limitations: Libraries
+
+:use BODY
+:vspace 0.1
+:cjust
+If we can statically link libraries, why do we dynamically link them and introduce possible instability?
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Limitations: Libraries
+
+:translate 0 -0.025
+:use BODY
+:use SIZE_3
+:use FG_MAGENTA
+:lmargin 0.05
+:rmargin 0.55
+:save '0'
+A static library that is used by multiple processes is duplicated in memory.
+:vspace 0.05
+:save '1'
+One copy of a dynamically linked library is shared by all processes that use it.
+:vspace 0.05
+:save '2'
+If a static library changes, applications that use it must be recompiled to use the new version.
+
+:use FG_GREEN
+:lmargin 0.5
+:rmargin 0.05
+:restore '0'
+One copy of a dynamically linked library is shared by all processes that use it.
+:restore '1'
+One copy of a dynamically linked library exists on the system.
+ This leads to smaller binaries.
+:restore '2'
+Updates to a shared library can be used without recompiling the application that uses it.
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Limitations: Libraries
+
+:use BODY
+Sounds great! What's the problem exactly?
+
+:use BULLET1
+:use SIZE_2
+Updates to libraries are often not
+:italic
+ backwards compatible
+:no-italic
+.
+
+:use BULLET1
+:use SIZE_2
+For an application that depends on a shared library to be "stable", the
+:use FG_MAGENTA
+:bold
+ exact
+:no-bold
+:use FG_BODY
+ version of the library
+:use FG_MAGENTA
+:bold
+ must
+:no-bold
+:use FG_BODY
+ exist on the system in the
+:italic
+:bold
+ expected location
+:no-bold
+:no-italic
+:use FG_MAGENTA
+:bold
+ at all times
+:no-bold
+:use FG_BODY
+.
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Limitations: OS Interface, ABI
+
+:translate 0 -0.025
+
+:use BODY
+:use BULLET1_SMALL
+Changing an OS ABI after the fact is an almost intractable problem.
+ Backwards compatibility is important (mandatory?)
+
+:use BULLET1_SMALL
+How does the ABI definition impact programming language interface?
+
+:use BULLET1_SMALL
+What decisions are you locked into? Performance implications?
+
+:use BULLET1_SMALL
+How about sharing memory? Security? (meltdown)
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Examples
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Windows
+
+:use BODY
+:rmargin 0.2 # force a little early wrapping
+Strong history of backwards compatibility [1]
+
+:use BODY
+:translate 0 -0.125
+:rjust
+:use FG_GREEN
+ : )
+
+:use BODY
+DLL-hell
+
+:translate 0 -0.125
+:rjust
+:use FG_MAGENTA
+ : (
+
+:use BODY
+Microsoft
+
+:translate 0 -0.125
+:rjust
+:use FG_MAGENTA
+ : (
+
+:vspace 0.1
+:use BODY
+:use FG_GREY
+:rjust
+:use SIZE_5
+[1] http://ptgmedia.pearsoncmg.com/images/9780321440303/samplechapter/Chen_bonus_ch01.pdf
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Linux (Traditional)
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+NixOS
+
+:use BODY
+:use SIZE_2
+Great ideas:
+
+:use BULLET2
+:use SIZE_3
+Isolating build environments
+
+:use BULLET2
+:use SIZE_3
+Identifying packages by hash to ensure that upgrading / installing one package doesn't break another package
+
+:use BODY
+:use SIZE_2
+Not immune to dynamic linking issues:
+
+:use MATH
+:use FG_PURPLE
+:use SIZE_3
+       https://www.johnbcoughlin.com/posts/nix-dynamic-linking
+
+:use BODY
+:use SIZE_3
+It can only go so far when building upon the traditional systems with dynamically linked dependencies.
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Microkernel Design
+
+:use BODY
+:use BULLET1
+Smaller, more stable and priveleged kernel
+
+:use BULLET1
+Fault tolerance
+
+:use BULLET1
+Rapid development/research of system-level components
+
+:use BULLET1
+But microkernels need way more system calls and contexts are slow...
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+IPC
+
+:translate 0 -0.05
+
+:use BODY
+:use BULLET1
+Message-based IPC can be accomplished without context switching into kernel space.
+
+:use BULLET2
+Exception: setting up shared buffers
+
+:use BULLET1
+If device drivers are userspace applications, then operating on those devices can remain outside of the kernel completely.
+
+:use BULLET2
+(Depending on how the device is commanded)
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+
+:translate 0 -0.05
+
+Message Types:
+
+:use BODY
+:use BULLET1_SMALL
+Direct:
+
+:use BULLET2
+Similar to UNIX pipe; FIFO in shared memory.
+
+:use BULLET1_SMALL
+Unknown Recipient:
+
+:use BULLET2
+Message is sent to 
+:italic
+someone
+:no-italic
+ who claims to handle a certain message type
+
+:use BULLET1_SMALL
+Broadcast:
+
+:use BULLET2
+Send to all recipients waiting on message type
+
+:use NEXT_SLIDE #####################################################
+:use BODY
+
+:vspace 0.05
+
+:use DIAGRAM
+:use SIZE_5
+:rmargin 0
+:lmargin 0.1
+
+
+            --------            ---------             -------            --------
+
+    (0) - > | INIT | - > (0) -> | SHELL | -> (1)      | CAT |  -> (2) -> | GREP | -> (1)
+
+            --------            ---------      \      -------            --------      \
+
+               |                                |                                       |
+
+               v                                |                                       |
+
+              (1) <----------------------------/---------------------------------------/
+
+
+
+
+
+                      Lane Tables (lane ID, shared memory buffer ID)
+
+                      ----------------------------------------------
+
+                               INIT  | SHELL | CAT  | GREP
+
+                      ----------------------------------------------
+
+                               0, 0  | 0, 0  | 0, - | 0, 2
+
+                               1, 1  | 1, 1  | 1, 2 | 1, 1
+
+                               2, -  | 2, -  | 2, - | 2, -
+
+:translate 0 -0.1
+:use BODY
+:lmargin 0.01
+:use MONO
+:use SIZE_4
+# direct messaging
+
+# cat "file" | grep "pattern"
+
+S := me();
+
+C := pstart("cat");
+
+G := pstart("grep");
+
+lanemap(C:1, G:0);
+
+lanemap(G:1, S:1);
+
+:translate 0 -0.1
+
+:use NEXT_SLIDE #####################################################
+:use BODY
+:use MONO
+:use SIZE_4
+
+:vspace 0.1
+
+:save 'top'
+#unknown recipient: producer
+
+lane := getlane("notify");
+
+msg_send(lane, "notification");
+
+:restore 'top'
+:lmargin 0.55
+#unknown recipient: consumer
+
+lane := getlane("notify");
+
+msg := msg_receive(lane);
+
+:use NEXT_SLIDE #####################################################
+:use HEADER
+Non-Hierarchical Filesystem
+
+:use BODY
+:use BULLET1
+Tags
+
+:use BULLET1
+Query based
+
+:use BULLET1
+ 
+:use FONT_MONO
+open
+:use FONT_NORMAL
+-like system call can return multiple results
+
+:use BULLET1
+File copies to "another universe" or an archive?
+
+:use SLIDE_NUMBER ###################################################
